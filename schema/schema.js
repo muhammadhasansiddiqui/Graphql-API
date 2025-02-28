@@ -1,14 +1,15 @@
-const graphql = require('graphql');
-const _ = require('lodash');
-const {GraphQLObjectType ,
-  GraphQLString ,
-  GraphyQLInt} = graphql
+const { GraphQLSchema, GraphQLObjectType, GraphQLString, GraphQLInt } = require("graphql");
+const _ = require("lodash");
+
+
+  // import { GraphQLSchema, GraphQLObjectType, GraphQLString , GraphQLInt } from "graphql";
+
 
 const users = [
-  { "id": "1", "firstname": "John Doe", "age": 22 },
-  { "id": "2", "firstname": "jack",     "age": 23 },
-  { "id": "3", "firstname": "king",     "age": 24 },
-  { "id": "4", "firstname": "kafi",     "age": 25 },
+  { "id": "23", "firstname": "John Doe", "age": 22 },
+  { "id": "47", "firstname": "jack",     "age": 23 },
+  { "id": "13", "firstname": "king",     "age": 24 },
+  { "id": "76", "firstname": "kafi",     "age": 25 },
 ];
 
 
@@ -17,7 +18,7 @@ const UserType = new GraphQLObjectType({
     fields:{
         id:       {type: GraphQLString},
         firstname:{type: GraphQLString},
-        age:      {type: GraphyQLInt} ,
+        age:      {type: GraphQLInt} ,
        
         
     }

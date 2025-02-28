@@ -1,18 +1,18 @@
 const express = require('express');
-const expressGraphQl = require('express-graphql');
-const port = 4000;
-const app = express();
+const { graphqlHTTP } = require('express-graphql'); // ✅ Fix: Correct import
 const schema = require('./schema/schema');
 
+const app = express();
+const port = 4000;
+
 app.use(
-'/graphql',
-  expressGraphQl({
+  '/graphql',
+  graphqlHTTP({ // ✅ Fix: Use `graphqlHTTP`
     schema,
-    graphql: true
+    graphiql: true, // ✅ Fix: Correct spelling (was `graphql` instead of `graphiql`)
   })
-)
+);
 
 app.listen(port, () => {
   console.log("🚀 ~ Server is running on port:", port);
-  console.log(`Server is running on port ${port}`);
 });
